@@ -1,0 +1,14 @@
+services:
+  api:
+    build:
+      context: .
+      args:
+        - DB_HOST=db:27017
+    ports:
+      - '7001:7001'
+  db:
+    image: mongodb/mongodb-community-server
+    ports:
+      - '27017:27017'
+    volumes:
+      - ~/data/bun-express-starter/data/db:/data/db
